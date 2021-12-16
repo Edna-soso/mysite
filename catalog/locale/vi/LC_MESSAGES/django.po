@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-24 09:04+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/base_generic.html:5
+#, fuzzy
+#| msgid "Local Library Home"
+msgid "Local Library"
+msgstr "Thư viện"
+
+#: templates/base_generic.html:19 templates/views.html:2
+msgid "Home"
+msgstr "Trang chủ"
+
+#: templates/base_generic.html:20
+msgid "All books"
+msgstr "Tất cả sách"
+
+#: templates/base_generic.html:21
+msgid "All authors"
+msgstr "Tất cả tác giả"
+
+#: templates/index.html:5
+msgid "Local Library Home"
+msgstr "Thư viện"
+
+#: templates/index.html:6
+msgid "Welcome to LocalLibrary, a website developed by"
+msgstr "Chào mừng đến với thư viện của chúng tôi"
+
+#: templates/index.html:6
+msgid "Mozilla Developer Network"
+msgstr "được tạo bởi Mozilla"
+
+#: templates/index.html:7
+msgid "Dynamic content"
+msgstr "Nội dung linh hoạt"
+
+#: templates/index.html:8
+msgid "The library has the following record counts:"
+msgstr "Thư viện có số lượng bản ghi sau:"
+
+#: templates/index.html:10
+msgid "Books:"
+msgstr "Sách"
+
+#: templates/index.html:11
+msgid "Copies:"
+msgstr "Bản sao:"
+
+#: templates/index.html:12
+msgid "Copies available:"
+msgstr "Các bản sao có sẵn:"
+
+#: templates/index.html:13
+msgid "Authors:"
+msgstr "Tác giả: "
