@@ -1,7 +1,6 @@
 {% extends "base_generic.html" %}
 {% load i18n %}
 {% block content %}
-
   <h1>{%trans 'Author:' %} {{ author }} </h1>
     <p>{{author.date_of_birth}} - {% if author.date_of_death %}{{author.date_of_death}}{% endif %}</p>
     <div class = "all_books">
@@ -12,6 +11,5 @@
         <dd>{{book.summary}}</dd>
       {% endfor %}
       </dl>
-  </div>
+    </div>
 {% endblock %}
-
