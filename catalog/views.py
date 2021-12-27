@@ -4,6 +4,7 @@ from django.http import Http404
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Book, Author, BookInstance, Genre
+from django.http import Http404
 
 def index(request):
     num_books = Book.objects.count()
