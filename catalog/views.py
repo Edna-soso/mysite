@@ -5,6 +5,10 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Book, Author, BookInstance, Genre
 from django.http import Http404
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import View
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.decorators import permission_required
 
 def index(request):
     num_books = Book.objects.count()
@@ -65,6 +69,11 @@ class AuthorDetailView(generic.DetailView):
             raise Http404('Author does not exist')
         return render(request, 'catalog/author_detail.html', context={'author': author})
 
+
+class MyView(LoginRequiredMixin, View):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
+
 class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     """Generic class-based view listing books on loan to current user."""
     model = BookInstance
@@ -72,4 +81,13 @@ class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        return BookInstance.objects.filter(borrower=self.request.user, status__exact='o').order_by('due_back')
+        return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='o').order_by('due_back')
+
+@permission_required('catalog.can_mark_returned')
+@permission_required('catalog.can_edit')
+def my_view(request):
+    ...
+class MyView(PermissionRequiredMixin, View):
+    permission_required = 'catalog.can_mark_returned'
+    permission_required = ('catalog.can_mark_returned', 'catalog.can_edit')
+    
