@@ -1,8 +1,9 @@
 {% extends "base_generic.html" %}
+{% load i18n %}
 
 {% block content %}
 
-<h1>Author List</h1>
+<h1>{%trans 'Author List'%}</h1>
 
 {% if author_list %}
   <ul>
@@ -15,6 +16,6 @@
   {% endfor %}
   </ul>
 {% else %}
-  <p>There are no authors available.</p>
+<p>{%trans 'There are no authors available.'%}</p>
 {% endif %}       
 {% endblock %}
