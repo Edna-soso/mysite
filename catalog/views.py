@@ -34,7 +34,6 @@ class BookListView(generic.ListView):
     paginate_by = 2
     def get_context_data(self, **kwargs):
         context = super(BookListView, self).get_context_data(**kwargs)
-        context['some_data'] = 'This is just some data'
         return context
 
 class BookDetailView(generic.DetailView):
@@ -61,4 +60,5 @@ class AuthorDetailView(generic.DetailView):
         except Author.DoesNotExist:
             raise Http404('Author does not exist')
         return render(request, 'catalog/author_detail.html', context={'author': author})
-            
+ 
+      
