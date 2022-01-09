@@ -12,7 +12,11 @@ import datetime
 from catalog.forms import RenewBookForm
 from catalog.models import Author
 from .models import Book, Author, BookInstance, Genre
-
+from django.http import Http404
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import View
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.decorators import permission_required
 
 def index(request):
     num_books = Book.objects.count()
