@@ -3,11 +3,9 @@ from django.urls import reverse
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
 from datetime import date
-import datetime
 import uuid 
-#from catalog.models import BookInstance
-
 class Genre(models.Model):
     name = models.CharField(max_length=200, help_text='Enter a book genre (e.g. Science Fiction)')
 

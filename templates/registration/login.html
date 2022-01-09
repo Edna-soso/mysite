@@ -1,17 +1,32 @@
 {% extends "base_generic.html" %}
+<<<<<<< HEAD
 {% load i18n %}
 {% block content %}
 
   {% if form.errors %}
     <p>{%trans 'Your username and password did not match. Please try again.' %} </p>
+=======
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+>>>>>>> f89317709a6ee971f544f00bda8499c39d7ce47e
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
+<<<<<<< HEAD
       <p>{%trans 'Your account does not have access to this page. To proceed,
       please login with an account that has access.'%}</p>
     {% else %}
       <p>{%trans 'Please login to see this page.'%}</p>
+=======
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+>>>>>>> f89317709a6ee971f544f00bda8499c39d7ce47e
     {% endif %}
   {% endif %}
 
