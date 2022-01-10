@@ -1,7 +1,6 @@
 {% extends "base_generic.html" %}
 {% load i18n %}
 {% block content %}
-
   {% if form.errors %}
     <p>{%trans 'Your username and password did not match. Please try again.' %} </p>
   {% endif %}
