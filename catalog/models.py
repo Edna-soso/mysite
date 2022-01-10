@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse 
 from django.contrib.auth.models import User
+from django.forms import ModelForm
+from django.utils.translation import gettext as _
 from datetime import date
 import uuid 
 
@@ -64,9 +66,11 @@ class BookInstance(models.Model):
 
     class Meta:
         ordering = ['due_back']
+        permissions = (("can_mark_returned", "Set book as returned"),)
 
     def __str__(self):
         return f'{self.id} ({self.book.title})'
+    
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
