@@ -1,11 +1,13 @@
 from django.db import models
 from django.urls import reverse 
 from django.contrib.auth.models import User
+from django.forms import ModelForm
+from django.utils.translation import gettext as _
 from datetime import date
 import uuid 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=200, help_text='Enter a book genre (e.g. Science Fiction)')
+    name = models.CharField(max_length=200, help_text=_('Enter a book genre (e.g. Science Fiction)'))
 
     def __str__(self):
         return self.name
@@ -23,6 +25,7 @@ class Book(models.Model):
     # ManyToManyField used because genre can contain many books. Books can cover many genres.
     # Genre class has already been defined so we can specify the object above.
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
+    language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.title
@@ -59,14 +62,16 @@ class BookInstance(models.Model):
         choices=LOAN_STATUS,
         blank=True,
         default='m',
-        help_text='Book availability',
+        help_text=_('Book availability'),
     )
 
     class Meta:
         ordering = ['due_back']
+        permissions = (("can_mark_returned", "Set book as returned"),)
 
     def __str__(self):
         return f'{self.id} ({self.book.title})'
+    
 class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -80,3 +85,10 @@ class Author(models.Model):
 
     class Meta:
         ordering = ['last_name', 'first_name']
+
+class Language(models.Model):
+    name = models.CharField(max_length=200,
+                            help_text=_("Enter the book's natural language:"))
+
+    def __str__(self):
+        return self.name  
